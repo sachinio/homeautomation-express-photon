@@ -14,6 +14,6 @@
     "johnny-five": "^0.9.44",
     "mongojs": "^2.3.0",
     "node-gcm": "^0.14.0",
-    "particle-io": "^0.12.0",
+    "particle-io": "^0.12.0"
   }
 }
