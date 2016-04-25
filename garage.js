@@ -14,7 +14,7 @@ module.exports = function(notify) {
         })
     }).on("ready", function () {
         console.log('Connected to Garage Controller');
-        require('./guard.js')(this, notify);
+        require('./guard.js')(self, notify);
         var _board = this;
         this.pinMode(MainDoorPort, this.MODES.OUTPUT);
         var proximity = new five.Proximity({
