@@ -1,4 +1,4 @@
-module.exports = function(notify) {
+module.exports = function (notify) {
     var five = require("johnny-five");
     var Particle = require("particle-io");
     var self = this;
@@ -18,27 +18,28 @@ module.exports = function(notify) {
         var _board = this;
         this.pinMode(MainDoorPort, this.MODES.OUTPUT);
         var proximity = new five.Proximity({
-             controller: "HCSR04",
-             pin: "D1",
-             freq: 500
-         });
+            controller: "HCSR04",
+            pin: "D1",
+            freq: 500
+        });
 
-         proximity.on("data", function () {
-             flag = !flag;
-             arr[flag ? 0:1] = this.cm < 200;
-             if(arr[0] === arr[1])
+        proximity.on("data", function () {
+            flag = !flag;
+            arr[flag ? 0 : 1] = this.cm < 200;
+            if (arr[0] === arr[1])
                 open = arr[0] && arr[1];
-         });
+        });
 
-
-        self.isDoorOpen = function(){
+        self.isDoorOpen = function () {
             return open;
         };
 
-        self.toggleDoor = function(){
+        self.toggleDoor = function () {
             console.log("Door button pressed");
-            _board.digitalWrite(MainDoorPort,1);
-            setTimeout(function(){_board.digitalWrite(MainDoorPort,0)},500);
+            _board.digitalWrite(MainDoorPort, 1);
+            setTimeout(function () {
+                _board.digitalWrite(MainDoorPort, 0);
+            }, 500);
         };
     });
 

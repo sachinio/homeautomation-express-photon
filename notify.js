@@ -22,7 +22,6 @@ module.exports = function (){
                 priority: 'high',
                 notification: {
                     title: subject,
-                    icon: "ic_launcher",
                     body: msg
                 }
             });

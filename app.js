@@ -32,4 +32,3 @@ app.post('/device', function(req, res){
 });
 
 app.listen(5000);
-
