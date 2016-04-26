@@ -34,7 +34,7 @@ module.exports = function(){
                 _board.servoWrite(verticalServo, ((Math.random() * 20) | 0) + 30);
                 _board.servoWrite(horizontalServo, ((Math.random() * 60) | 0) + 60);
                 _board.digitalWrite(laser, 1);
-            }, 1500);
+            }, (1800 * Math.random()) | 0);
         };
 
         self.stop = function(){
