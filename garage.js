@@ -31,6 +31,7 @@ module.exports = function (notify) {
         });
 
         self.isDoorOpen = function () {
+            console.log("Checking door status: ", open)
             return open;
         };
 
