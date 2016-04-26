@@ -6,6 +6,7 @@ module.exports = function (notify) {
     var open = false;
     var arr = [];
     var flag = true;
+    var last = 0;
 
     new five.Board({
         io: new Particle({
@@ -25,13 +26,14 @@ module.exports = function (notify) {
 
         proximity.on("data", function () {
             flag = !flag;
+            last = this.cm;
             arr[flag ? 0 : 1] = this.cm < 200;
             if (arr[0] === arr[1])
                 open = arr[0] && arr[1];
         });
 
         self.isDoorOpen = function () {
-            console.log("Checking door status: ", open)
+            console.log("Checking door status: ", last)
             return open;
         };
 
